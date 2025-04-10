@@ -9,12 +9,12 @@
         <h1>Time Registion</h1>
         <p>Form for you to register your time for classes</p>
 
-        <form>
+        <form method="POST">
 
-            <label for="time_start">Class Start</label>
-            <input id="time_start" type="time">
-            <label for="time_end">Class End</label>
-            <input id="time_start" type="time">
+            {% csrf_token %}
+            {{ form.as_table }}
+            <br>
+            <button type="submit">SUBMIT</button>
 
         </form>
 </html>

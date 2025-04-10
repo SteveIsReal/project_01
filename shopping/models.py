@@ -16,8 +16,8 @@ class Student(models.Model):
         return self.name
 
 class ClassTime(models.Model):
-    time_start = models.TimeField(utils.timezone.now())
-    time_end = models.TimeField(utils.timezone.now())
+    time_start = models.TimeField(default=utils.timezone.now())
+    time_end = models.TimeField(default=utils.timezone.now())
 
     def __str__(self):
         return f'{self.time_start} - {self.time_end}'
