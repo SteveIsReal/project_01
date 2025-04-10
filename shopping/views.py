@@ -1,19 +1,27 @@
 from django.shortcuts import render, redirect
-from .forms import ClassTimeForm
+from .forms import ClassTimeForm, ClassForm
 # Create your views here.
 def time_register(request):
     if request.method == "POST":
         form = ClassTimeForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('display_page')
+            return redirect('/')
     else:
         form = ClassTimeForm()
 
     return render(request, "time_register/time_register.html", {'form':form})
 
 def teacher_register(request):
-    return render(request, "teacher_register/teacher_register.html")
+    if request.method == "POST":
+        form = ClassForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+    else:
+        form = ClassForm()
+
+    return render(request, "teacher_register/teacher_register.html", {'form':form})
 
 def student_register(request):
     return render(request, "student_register/student_register.html")
