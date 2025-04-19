@@ -22,4 +22,4 @@ class Enrollment(models.Model):
    student = models.ManyToManyField(Student)
    
    def __str__(self):
-       return self.timeslot
+       return 'Class' 
