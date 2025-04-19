@@ -26,7 +26,7 @@ def teacher_register(request):
 def student_register(request):
     if request.method == "POST":
         form = StudentForm(request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             form.save()
             return redirect("/")
     else:
@@ -36,7 +36,7 @@ def student_register(request):
 def create_class(request):
     if request.method == "POST":
         form = ClassForm(request.POST)
-        if form.is_vaild():
+        if form.is_valid():
             form.save()
             return redirect("/")
     else:
