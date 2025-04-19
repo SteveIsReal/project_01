@@ -13,7 +13,7 @@ class Course(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.class_name
+        return self.name
 
 
 class TimeSlot(models.Model):
