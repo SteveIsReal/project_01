@@ -10,7 +10,7 @@ class RoomAdminForm(forms.ModelForm):
         if Room.objects.filter(room_name=data["room_name"]).exists():
             raise ValidationError("Duplicate room name")
         else:
-            return data["room_name"]
+            return data
 
 
 @admin.register(Room)
